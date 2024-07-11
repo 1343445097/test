@@ -11,7 +11,7 @@ import time
 #编码token信息
 def encode(user_info):
     now = time.time()
-    dic = {'exp':now+5,
+    dic = {'exp':now+60,
            'iat':now,    # 签发时间
            'iss':'myai',    # 签发者
            'data':user_info,

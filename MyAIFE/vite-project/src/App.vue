@@ -1,17 +1,22 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import Login from './components/login.vue'
+import { useStore } from 'vuex'
+const store = useStore()
+const logout = ()=>{store.commit("logout")}
 </script>
 
 <template>
-    <router-link to="/">Home</router-link>
-    <router-link to="/login">login</router-link>
-   <!-- <Login></Login> -->
+    <!-- <router-link  to="/">Home</router-link>
+    <router-link to="/login">login</router-link> -->
+    <!-- <el-button @click="logout"></el-button> -->
+
    <router-view></router-view>
 
 </template>
 
 <style scoped>
+
 .logo {
   height: 6em;
   padding: 1.5em;

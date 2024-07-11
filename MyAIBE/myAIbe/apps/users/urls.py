@@ -11,4 +11,6 @@ from . import views
 urlpatterns = [
     path('register/', views.register),
     path('login/', views.login_view),
+    path('token_login/', views.token_login),
+    path('logout/', views.LogoutView.as_view()),
 ]
