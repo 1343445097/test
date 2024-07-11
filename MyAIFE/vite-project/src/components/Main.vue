@@ -37,8 +37,8 @@ const store = useStore()
 const logout = ()=>{store.commit("logout")}
 const router = useRouter(); //路由
 const mycomponents = defineComponent([myvideo,myalgorithm])
-const chosecomponent = shallowRef(myvideo)
-const menuMessage = ref('1-1')
+const chosecomponent = shallowRef(mymain)
+const menuMessage = ref('3-1')
 //子组件菜单更新值
 const updateMenuMessage = (updatevalue)=>{
   menuMessage.value = updatevalue
@@ -59,6 +59,7 @@ const updateMenuMessage = (updatevalue)=>{
     chosecomponent.value = mydeploy
   }
 }
+
 </script>
 
 <style scoped>
