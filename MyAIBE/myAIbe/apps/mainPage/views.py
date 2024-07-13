@@ -21,4 +21,5 @@ def api_getIndex(request):
         "msg":msg,
         "os_info":os_info
     }
+    print(os_info)
     return JsonResponse(res)
