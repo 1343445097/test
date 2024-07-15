@@ -61,11 +61,11 @@ import {
 import { ref } from "vue";
 const isCollapse = ref(false);
 const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
+  // console.log(key, keyPath);
   
 };
 const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
+  // console.log(key, keyPath);
 };
 //父方法
 let emit = defineEmits(['menu-event'])
@@ -74,7 +74,6 @@ const menuHandle=(chosePage)=>{
 }
 //切换页面
 const switchPage=(form1)=>{
-  //console.log("switch",form1,form1.index)
   menuHandle(form1.index)
 }
 </script>

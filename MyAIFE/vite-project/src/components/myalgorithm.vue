@@ -1,22 +1,33 @@
 <template>
-    <el-scrollbar height="400px">
-      <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
-    </el-scrollbar>
-    algorithm
-    <el-button>ok</el-button>
-  </template>
+  <el-table :data="tableData" style="width: 100%">
+    
+    <el-table-column fixed prop="date" label="序号" width="150" >
+      <template #default="scope">
+        {{ scope.row.id }}
+        </template>
+    </el-table-column>
+    
+    <el-table-column fixed prop="date2" label="名称" width="150" />
+    <el-table-column prop="name" label="检测间隔" width="120" />
+    <el-table-column prop="state" label="灵敏度" width="120" />
+    <el-table-column prop="city" label="阈值" width="120" />
+    <el-table-column prop="address" label="备注" width="200" />
+
+    </el-table>
+</template>
+
   
   <style scoped>
-  .scrollbar-demo-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    margin: 10px;
-    text-align: center;
-    border-radius: 4px;
-    background: var(--el-color-primary-light-9);
-    color: var(--el-color-primary);
-  }
-  </style>
+.scrollbar-demo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 4px;
+  background: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
+}
+</style>
   

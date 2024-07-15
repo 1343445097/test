@@ -5,8 +5,12 @@
 # @Software: PyCharm
 from django.urls import path
 
-from .views import *
+from mainPage.views.api import *
 
 urlpatterns = [
-    path('getIndex', api_getIndex),
+    path('behavior', web_behavior), # 数据库中获取算法
+
+    path('getIndex', api_getIndex),  # 获取OS信息
+    path('getStreams', api_getStreams),  # 获取视频流
+
 ]

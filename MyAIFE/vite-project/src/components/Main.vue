@@ -14,7 +14,7 @@
               <!-- <mymain ></mymain> -->
               <!-- <myalgorithm v-if="menuMessage=='1-1'">33</myalgorithm>
               <myvideo v-if="menuMessage=='2-1'"></myvideo> -->
-              <component :is="chosecomponent"></component>
+              <component :is="store.state.mainPage"></component>
             </el-main>
             <el-footer>Footer</el-footer>
           </el-container>
@@ -27,36 +27,42 @@
 <script setup>
 import { useRoute,useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import { defineComponent, ref,shallowRef } from 'vue'
+import { defineComponent, ref,shallowRef,computed } from 'vue'
 import asideMenu from './Menu.vue'
 import mymain from './mymain.vue'
 import myvideo from './myvideo.vue'
 import myalgorithm from './myalgorithm.vue'
 import mydeploy from './mydeploy.vue'
+import myvideiomanager from './myvideoManager.vue'
 const store = useStore()
 const logout = ()=>{store.commit("logout")}
 const router = useRouter(); //路由
-const mycomponents = defineComponent([myvideo,myalgorithm])
-const chosecomponent = shallowRef(mymain)
+// const chosecomponent = shallowRef(mymain)
+
+store.state.mainPage = mymain
+
 const menuMessage = ref('3-1')
 //子组件菜单更新值
 const updateMenuMessage = (updatevalue)=>{
   menuMessage.value = updatevalue
-  console.log("菜单点击更新",updatevalue,menuMessage)
   if( menuMessage.value=='1-1'){
-    chosecomponent.value = mymain
+    store.state.mainPage = mymain
   }
   else if(menuMessage.value=='2-1')
   {
-    chosecomponent.value = myvideo
+    store.state.mainPage = myvideiomanager
+  }
+  else if(menuMessage.value=='2-2')
+  {
+    store.state.mainPage = myvideo
   }
   else if(menuMessage.value=='3-1')
   {
-    chosecomponent.value = myalgorithm
+    store.state.mainPage = myalgorithm
   }
   else if(menuMessage.value=='4-1')
   {
-    chosecomponent.value = mydeploy
+    store.state.mainPage = mydeploy
   }
 }
 
