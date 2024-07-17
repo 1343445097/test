@@ -29,5 +29,5 @@ base_behaviors = base_djangoSql.select("select * from av_behavior")
 
 
 
-print("feature-test3")
+print("feature-test6")
 
