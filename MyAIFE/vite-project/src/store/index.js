@@ -62,7 +62,7 @@ const store = createStore({
               {
                 state.mainPage = myvideo
               }
-              else if(mpageid=='3-1')
+              else if(pageid=='3-1')
               {
                 state.mainPage = myalgorithm
               }
@@ -70,6 +70,9 @@ const store = createStore({
               {
                 state.mainPage = mydeploy
               }
+              localStorage.setItem("lastPage",pageid)
+              localStorage.setItem("lastUrl",url)
+              console.log(localStorage)
         }
     },
 

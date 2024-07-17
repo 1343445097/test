@@ -27,7 +27,7 @@
 <script setup>
 import { useRoute,useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import { defineComponent, ref,shallowRef,computed } from 'vue'
+import { defineComponent, ref,shallowRef,computed, onMounted } from 'vue'
 import asideMenu from './Menu.vue'
 import mymain from './mymain.vue'
 import myvideo from './myvideo.vue'
@@ -45,27 +45,37 @@ const menuMessage = ref('3-1')
 //子组件菜单更新值
 const updateMenuMessage = (updatevalue)=>{
   menuMessage.value = updatevalue
-  if( menuMessage.value=='1-1'){
-    store.state.mainPage = mymain
-  }
-  else if(menuMessage.value=='2-1')
-  {
-    store.state.mainPage = myvideiomanager
-  }
-  else if(menuMessage.value=='2-2')
-  {
-    store.state.mainPage = myvideo
-  }
-  else if(menuMessage.value=='3-1')
-  {
-    store.state.mainPage = myalgorithm
-  }
-  else if(menuMessage.value=='4-1')
-  {
-    store.state.mainPage = mydeploy
-  }
+  store.commit("switchPage",{"pageid":updatevalue,"url":''})
 }
 
+onMounted(()=>{
+  let pageid = localStorage.getItem("lastPage")
+  let url = localStorage.getItem("url")
+  if(pageid){
+    store.commit("switchPage",{"pageid":pageid,"url":url})
+  }
+})
+
+var p = new Promise((resolve,reject)=>{
+  console.log("Promise")
+  resolve(1)
+}).then((res)=>
+{
+  console.log("then",res)
+  return Promise.reject(2)
+}).then((res)=>
+{
+  console.log("then",res)
+  return Promise.resolve(3)
+}).catch((err)=>{
+  console.log("catch",err)
+}).then((res)=>
+{
+  console.log("then",res)
+  return Promise.reject(4)
+}).catch((err)=>{
+  console.log("catch",err)
+})
 </script>
 
 <style scoped>

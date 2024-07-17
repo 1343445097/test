@@ -4,11 +4,12 @@ from django.http import HttpRequest,JsonResponse
 from django.conf import settings
 from utils.OSInfo import OSInfo
 
-from mainPage.views.ViewsBase import base_mdeia
+from mainPage.views.ViewsBase import base_mdeia,base_behaviors
 
 def web_behavior(request):
     """获取算法"""
-    return JsonResponse({"ok":"True"})
+    print(base_behaviors)
+    return JsonResponse({"code":0,"data":base_behaviors})
 
 def api_getIndex(request):
     code = 0
