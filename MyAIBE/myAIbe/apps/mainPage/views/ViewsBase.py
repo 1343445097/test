@@ -28,3 +28,4 @@ base_behaviors = base_djangoSql.select("select * from av_behavior")
 # print(base_behaviors)
 
 
+print("master")
